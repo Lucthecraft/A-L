@@ -11,11 +11,13 @@ namespace Template
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D tex;
         
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
         }
 
         /// <summary>
@@ -39,7 +41,7 @@ namespace Template
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            tex = Content.Load<Texture2D>("testTile");
             // TODO: use this.Content to load your game content here
         }
 
@@ -75,6 +77,9 @@ namespace Template
         {
             GraphicsDevice.Clear(Color.Black);
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(tex, position: Vector2.Zero, color:null);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
