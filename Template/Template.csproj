@@ -109,7 +109,6 @@
     <Content Include="Content\ball.png" />
     <Content Include="Content\GO.png" />
     <Content Include="Content\paddle.png" />
-    <Content Include="Content\testTile.png" />
     <Content Include="Content\tree.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

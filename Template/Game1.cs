@@ -9,7 +9,7 @@ namespace Template
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D palTex, balTex, GOtex;
+        Texture2D palTex, balTex, GOtex, BG;
         Vector2 palPos, balPos, GOpos;
 
         bool GO;
@@ -21,8 +21,8 @@ namespace Template
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 1024;
+            graphics.PreferredBackBufferWidth = 600;
+            graphics.PreferredBackBufferHeight = 600;
         }
 
 
@@ -31,6 +31,7 @@ namespace Template
             palTex = Content.Load<Texture2D>("paddle");
             balTex = Content.Load<Texture2D>("ball");
             GOtex = Content.Load<Texture2D>("GO");
+            BG = Content.Load<Texture2D>("tree");
 
             balXv = 10; balYv = 10; palv = 15;
 
@@ -89,6 +90,7 @@ namespace Template
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+            spriteBatch.Draw(BG, Vector2.Zero, null);
             if(!GO)
             {
                 spriteBatch.Draw(balTex, balPos, null);
