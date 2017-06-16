@@ -61,11 +61,16 @@ namespace Template
             {
                 balPos.X += balXv;
                 balPos.Y += balYv;
-                palPos.X += palv;
+                if (Keyboard.GetState().IsKeyDown(Keys.Left)) { palPos.X -= palv; }
+                if (Keyboard.GetState().IsKeyDown(Keys.Right)) { palPos.X += palv; }
                 if (balPos.X <= 0) { balXv *= -1; }
                 if (balPos.X >= GraphicsDevice.Viewport.Width - balTex.Width) { balXv *= -1; }
                 if (balPos.Y <= 0) { balYv *= -1; }
                 if (balPos.Y >= GraphicsDevice.Viewport.Height - balTex.Height) { GO = true; }
+                if (balPos.Y >= palPos.Y - balTex.Width)
+                {
+                    if (balPos.X + balTex.Width >= palPos.X & balPos.X <= palPos.X + palTex.Width & balPos.Y >= palPos.Y + palTex.Width /2) { balYv *= -1; }
+                }
 
             }
 
